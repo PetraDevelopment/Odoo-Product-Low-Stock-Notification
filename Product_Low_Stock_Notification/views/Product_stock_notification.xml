@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+        <record id="view_product_stoch_notification" model="ir.ui.view">
+            <field name="name">view.product.stoch.notification</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='warehouse_setting_container']" position="after">
+                    <h2>Product Stock Notification</h2>
+                    <div class="row mt16 o_settings_container" name="Test">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                                id="notification_based_on"
+                                >
+                                <form string="Your Form">
+                                    <group>
+                                        <div>
+                                            <label for="Notification_Based_On" string="Notification Based On"/>
+                                            <div class="text-muted">
+                                                    <p>Set quantity type</p>
+                                            </div>
+                                        </div>
+                                        <div class="o_setting_right_pane">
+                                        <field name="Notification_Based_On" widget="radio" options="{'vertical': true}"/>
+                                        </div>
+                                    </group>
+                                </form>
+                        </div> 
+                        <div class="col-12 col-lg-6 o_setting_box"
+                                id="Min_Quantity_Based_On"
+                                >
+                                <form string="Your Form">
+                                    <group>
+                                        <div class="o_form_label">
+                                            <label for="Min_Quantity_Based_On" string="Min Quantity Based On"/>
+                                            <div class="text-muted">
+                                                    Set notification mode
+                                            </div>
+                                        </div>
+                                        <div class="o_setting_right_pane">
+                                            <field name="Min_Quantity_Based_On" widget="radio" options="{'vertical': true}"/>
+                                        </div>
+                                    </group>
+                                </form>
+                        </div>  
+                        <div class="col-12 col-lg-6 o_setting_box"
+                                id="Quantity_Limit"
+                                attrs="{'invisible': [('Min_Quantity_Based_On', '!=', 'option1')]}"
+                                >
+                                <form string="Your Form">
+                                    <group>
+                                        <div class="o_form_label">
+                                            <label for="Quantity_Limit" string="Quantity Limit"/>
+                                            <div class="text-muted">
+                                                    Set minimum quantity
+                                            </div>
+                                        </div>
+                                        <div class="o_setting_right_pane">
+                                            <field name="Quantity_Limit"  />
+                                        </div>
+                                    </group>
+                                </form>
+                        </div>   
+                        <div class="col-12 col-lg-6 o_setting_box"
+                                id="Apply_On"
+                                >
+                                <form string="Your Form">
+                                    <group>
+                                        <div class="o_form_label">
+                                            <label for="Apply_On" string="Apply On"/>
+                                            <div class="text-muted">
+                                                    Check minimum quantity on
+                                            </div>
+                                            <div class="text-muted">
+                                                    Product or Product Variant
+                                            </div>
+                                        </div>
+                                        <div class="o_setting_right_pane">
+                                            <field name="Apply_On" widget="radio" options="{'vertical': true}"/>
+                                        </div>
+                                    </group>
+                                </form>
+                        </div>     
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
